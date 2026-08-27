@@ -1,773 +1,345 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FARMA PLUS SRL | Digital Healthcare & Medical Supply</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Space+Grotesk:wght@500;700;900&display=swap" rel="stylesheet">
-    <style>
-        /* --- CSS Variables & Sleek Tech-Medical Theme --- */
-        :root {
-            --bg-deep: #020617; /* Very Dark Slate */
-            --bg-surface: #0f172a;
-            --bg-card: #1e293b;
-            --color-primary: #0ea5e9; /* Medical Sky Blue */
-            --color-primary-glow: rgba(14, 165, 233, 0.4);
-            --color-secondary: #10b981; /* Health Emerald */
-            --color-secondary-glow: rgba(16, 185, 129, 0.4);
-            --text-main: #F8FAFC;
-            --text-muted: #94A3B8;
-            --font-heading: 'Space Grotesk', sans-serif;
-            --font-body: 'Outfit', sans-serif;
-            --radius-lg: 16px;
-            --radius-sm: 6px;
-            --max-width: 1200px;
-            --transition-speed: 0.3s;
-        }
-
-        /* --- Global Resets & Typography --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-body);
-            line-height: 1.7;
-            color: var(--text-main);
-            background-color: var(--bg-deep);
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            background-image: 
-                radial-gradient(circle at 15% 50%, rgba(14, 165, 233, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 85% 30%, rgba(16, 185, 129, 0.03) 0%, transparent 50%);
-        }
-
-        h1, h2, h3, h4, h5 {
-            font-family: var(--font-heading);
-            color: var(--text-main);
-            margin-bottom: 1rem;
-            letter-spacing: 0.5px;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: all var(--transition-speed) ease;
-        }
-
-        ul { list-style: none; }
-        img { max-width: 100%; height: auto; display: block; }
-
-        /* --- Utility Classes --- */
-        .container {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .section-padding {
-            padding: 120px 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-            position: relative;
-        }
-
-        .section-header h2 {
-            font-size: 3.5rem;
-            background: linear-gradient(to right, #fff, var(--color-primary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .section-header h2::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: var(--color-primary);
-            margin: 15px auto 0;
-            border-radius: 2px;
-            box-shadow: 0 0 15px var(--color-primary-glow);
-        }
-
-        .section-subtitle {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
-            font-weight: 300;
-            font-family: var(--font-body);
-        }
-
-        /* --- Header Navigation --- */
-        .navbar {
-            background-color: rgba(2, 6, 23, 0.85);
-            backdrop-filter: blur(16px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(14, 165, 233, 0.1);
-        }
-
-        .nav-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
-        }
-
-        .brand-logo {
-            font-family: var(--font-heading);
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--text-main);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            letter-spacing: 1px;
-        }
-
-        .brand-logo svg {
-            color: var(--color-primary);
-            filter: drop-shadow(0 0 8px var(--color-primary-glow));
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 35px;
-        }
-
-        .nav-menu a {
-            font-family: var(--font-body);
-            font-weight: 500;
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            position: relative;
-            padding: 5px 0;
-        }
-
-        .nav-menu a:hover {
-            color: var(--text-main);
-        }
-
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--color-primary);
-            transition: width var(--transition-speed) ease;
-            box-shadow: 0 0 10px var(--color-primary-glow);
-        }
-
-        .nav-menu a:hover::after {
-            width: 100%;
-        }
-
-        /* --- 1. Main Screen (Hero) --- */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(2, 6, 23, 0.85), rgba(2, 6, 23, 0.98)), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            padding-top: 80px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            padding: 8px 20px;
-            background: rgba(14, 165, 233, 0.1);
-            color: var(--color-primary);
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-family: var(--font-body);
-            font-weight: 600;
-            margin-bottom: 30px;
-            border: 1px solid rgba(14, 165, 233, 0.3);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            animation: fadeInDown 1s ease-out;
-        }
-
-        .hero h1 {
-            font-size: 4.8rem;
-            line-height: 1.1;
-            margin-bottom: 25px;
-            font-weight: 700;
-            text-shadow: 0 10px 25px rgba(0,0,0,0.8);
-            animation: fadeInUp 1s ease-out 0.2s both;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            margin-bottom: 45px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            font-weight: 300;
-            animation: fadeInUp 1s ease-out 0.4s both;
-        }
-
-        .btn-primary {
-            display: inline-block;
-            padding: 16px 40px;
-            background: var(--color-primary);
-            color: #020617;
-            font-family: var(--font-body);
-            font-size: 1.05rem;
-            font-weight: 600;
-            border: none;
-            border-radius: var(--radius-sm);
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            box-shadow: 0 10px 25px var(--color-primary-glow);
-            transition: all var(--transition-speed) ease;
-            animation: fadeInUp 1s ease-out 0.6s both;
-        }
-
-        .btn-primary:hover {
-            background: var(--color-secondary);
-            box-shadow: 0 15px 35px var(--color-secondary-glow);
-            transform: translateY(-2px);
-            color: #fff;
-        }
-
-        /* --- 2. About Us --- */
-        .about-section {
-            background-color: var(--bg-surface);
-            border-top: 1px solid rgba(255,255,255,0.02);
-            border-bottom: 1px solid rgba(255,255,255,0.02);
-        }
-
-        .about-card {
-            background: var(--bg-card);
-            padding: 60px 70px;
-            border-radius: var(--radius-lg);
-            border-top: 4px solid var(--color-primary);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            font-size: 1.1rem;
-            line-height: 1.9;
-            color: var(--text-main);
-            text-align: center;
-            font-weight: 300;
-        }
-
-        /* --- 3. Services --- */
-        .services-section {
-            background-color: var(--bg-deep);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
-        .service-box {
-            background: var(--bg-surface);
-            padding: 50px 40px;
-            border-radius: var(--radius-lg);
-            border: 1px solid rgba(255,255,255,0.03);
-            transition: all var(--transition-speed) ease;
-            position: relative;
-        }
-
-        .service-box:hover {
-            transform: translateY(-8px);
-            background: var(--bg-card);
-            border-color: rgba(14, 165, 233, 0.3);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(14, 165, 233, 0.1);
-            color: var(--color-primary);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 25px;
-            transition: all var(--transition-speed) ease;
-        }
-
-        .service-box:hover .service-icon {
-            background: var(--color-primary);
-            color: #fff;
-            box-shadow: 0 10px 20px var(--color-primary-glow);
-        }
-
-        .service-box h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            font-family: var(--font-heading);
-        }
-
-        .service-box p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* --- 4. Advantages --- */
-        .advantages-section {
-            background-color: var(--bg-surface);
-        }
-
-        .adv-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .adv-item {
-            background: rgba(255, 255, 255, 0.01);
-            padding: 40px 30px;
-            border-radius: var(--radius-lg);
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            transition: all var(--transition-speed) ease;
-            text-align: center;
-        }
-
-        .adv-item:hover {
-            background: rgba(14, 165, 233, 0.03);
-            border-color: rgba(14, 165, 233, 0.2);
-        }
-
-        .adv-icon {
-            color: var(--color-primary);
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .adv-item h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            font-family: var(--font-body);
-            font-weight: 500;
-        }
-
-        .adv-item p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* --- 5. Contact Section --- */
-        .contact-section {
-            background-color: var(--bg-deep);
-            border-top: 1px solid rgba(255,255,255,0.02);
-        }
-
-        .contact-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
-            background: var(--bg-card);
-            border-radius: var(--radius-lg);
-            box-shadow: 0 25px 60px rgba(0,0,0,0.5);
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .form-area {
-            padding: 60px;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-family: var(--font-body);
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 16px;
-            background: var(--bg-surface);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: var(--radius-sm);
-            color: var(--text-main);
-            font-family: var(--font-body);
-            font-size: 1rem;
-            transition: all var(--transition-speed) ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--color-primary);
-            background: rgba(14, 165, 233, 0.02);
-            box-shadow: 0 0 0 2px var(--color-primary-glow);
-        }
-
-        .form-group textarea {
-            height: 140px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            background: var(--color-primary);
-            color: #020617;
-            border: none;
-            padding: 16px 35px;
-            font-family: var(--font-body);
-            font-size: 1.05rem;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            border-radius: var(--radius-sm);
-            cursor: pointer;
-            width: 100%;
-            text-transform: uppercase;
-            transition: all var(--transition-speed) ease;
-        }
-
-        .submit-btn:hover {
-            background: var(--color-secondary);
-            box-shadow: 0 10px 25px var(--color-secondary-glow);
-            color: #fff;
-        }
-
-        .info-area {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(2, 6, 23, 0.95));
-            padding: 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            border-left: 1px solid rgba(255,255,255,0.02);
-        }
-
-        .info-area h3 {
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-            color: var(--color-primary);
-            font-family: var(--font-heading);
-        }
-
-        .info-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-            margin-bottom: 35px;
-        }
-
-        .info-item svg {
-            color: var(--color-primary);
-            width: 28px;
-            height: 28px;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .info-details h4 {
-            font-family: var(--font-body);
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-bottom: 6px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 500;
-        }
-
-        .info-details p, .info-details a {
-            color: var(--text-main);
-            font-size: 1.05rem;
-            font-weight: 400;
-        }
-
-        .info-details a:hover {
-            color: var(--color-primary);
-        }
-
-        /* --- Footer --- */
-        footer {
-            background-color: #01030b;
-            color: var(--text-muted);
-            text-align: center;
-            padding: 30px 0;
-            border-top: 1px solid rgba(255,255,255,0.02);
-            font-size: 0.9rem;
-        }
-
-        .footer-ref {
-            display: block;
-            margin-top: 8px;
-            font-size: 0.75rem;
-            opacity: 0.4;
-        }
-
-        /* --- Animations --- */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* --- Responsive Design --- */
-        @media (max-width: 1024px) {
-            .hero h1 { font-size: 3.5rem; }
-            .contact-layout { grid-template-columns: 1fr; }
-            .info-area { border-left: none; border-top: 1px solid rgba(255,255,255,0.05); }
-        }
-
-        @media (max-width: 768px) {
-            .nav-menu { display: none; }
-            .hero h1 { font-size: 2.8rem; }
-            .hero p { font-size: 1rem; }
-            .section-padding { padding: 80px 0; }
-            .section-header h2 { font-size: 2.5rem; }
-            .about-card { padding: 40px 25px; }
-            .form-area, .info-area { padding: 40px 25px; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farma Plus SRL — Distribuidora Mayorista Farmacéutica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F1E6;
+    --paper-dim:#EFE8D8;
+    --ink:#12211F;
+    --teal:#1F3D3A;
+    --teal-deep:#0F2422;
+    --amber:#B8763B;
+    --amber-soft:#DDA968;
+    --line:#D3C7AC;
+    --white:#FFFDF8;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 32px;}
+
+  ::selection{background:var(--amber-soft); color:var(--teal-deep);}
+
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{opacity:0; transform:translateY(14px); transition:opacity .7s ease, transform .7s ease;}
+    .reveal.in{opacity:1; transform:translateY(0);}
+  }
+
+  /* ---- Header ---- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(246,241,230,.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 32px; max-width:1080px; margin:0 auto;
+  }
+  .brand{
+    font-family:'Fraunces', serif; font-weight:600; font-size:20px;
+    letter-spacing:.01em; display:flex; align-items:center; gap:10px;
+  }
+  .brand .mark{
+    width:28px; height:28px; border:1.5px solid var(--teal); border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--teal);
+  }
+  nav.links{display:flex; gap:28px; font-size:14px; font-weight:500;}
+  nav.links a{text-decoration:none; color:var(--teal); opacity:.75; transition:opacity .2s;}
+  nav.links a:hover, nav.links a:focus-visible{opacity:1;}
+  .nav-cta{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px; text-decoration:none;
+    color:var(--white); background:var(--teal); padding:9px 16px; border-radius:3px;
+    letter-spacing:.02em;
+  }
+  .nav-cta:hover{background:var(--teal-deep);}
+  @media(max-width:720px){ nav.links{display:none;} }
+
+  /* ---- Hero ---- */
+  .hero{
+    padding:96px 0 72px; position:relative; overflow:hidden;
+  }
+  .reg-tag{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.06em;
+    color:var(--amber); text-transform:uppercase; margin-bottom:22px;
+  }
+  .reg-tag::before{content:''; width:6px; height:6px; background:var(--amber); border-radius:50%; display:inline-block;}
+  h1.title{
+    font-family:'Fraunces', serif; font-weight:500; font-size:clamp(40px,6.4vw,74px);
+    line-height:1.03; letter-spacing:-.01em; color:var(--teal-deep); max-width:760px;
+  }
+  h1.title em{font-style:italic; font-weight:300; color:var(--amber);}
+  .lede{
+    margin-top:26px; max-width:560px; font-size:18px; color:#3E524F;
+  }
+  .hero-cta-row{display:flex; gap:16px; margin-top:38px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--teal); color:var(--white); text-decoration:none;
+    padding:14px 24px; border-radius:3px; font-size:14.5px; font-weight:500;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn-primary:hover{background:var(--teal-deep);}
+  .btn-ghost{
+    border:1px solid var(--teal); color:var(--teal); text-decoration:none;
+    padding:14px 24px; border-radius:3px; font-size:14.5px; font-weight:500;
+  }
+  .btn-ghost:hover{background:var(--white);}
+
+  /* Ledger strip under hero */
+  .ledger-strip{
+    margin-top:64px; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    display:grid; grid-template-columns:repeat(4,1fr);
+  }
+  .ledger-strip .cell{
+    padding:20px 0 20px 0; border-left:1px solid var(--line);
+  }
+  .ledger-strip .cell:first-child{border-left:none;}
+  .ledger-strip .cell .num{font-family:'Fraunces', serif; font-size:26px; color:var(--teal-deep); font-weight:500;}
+  .ledger-strip .cell .lbl{font-family:'IBM Plex Mono', monospace; font-size:11px; color:#6B7C79; text-transform:uppercase; letter-spacing:.04em; margin-top:4px;}
+  @media(max-width:720px){ .ledger-strip{grid-template-columns:repeat(2,1fr);} .ledger-strip .cell:nth-child(3){border-left:none;} }
+
+  /* ---- Section shared ---- */
+  section{padding:88px 0;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--amber); margin-bottom:14px;
+  }
+  h2.h2{
+    font-family:'Fraunces', serif; font-weight:500; font-size:clamp(28px,3.6vw,42px);
+    color:var(--teal-deep); max-width:600px; line-height:1.1;
+  }
+
+  /* ---- About ---- */
+  .about{background:var(--paper-dim); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .about-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:64px; align-items:start; margin-top:44px;}
+  .about-grid p{color:#3E524F; font-size:16px; margin-bottom:18px; max-width:520px;}
+  .info-card{
+    background:var(--white); border:1px solid var(--line); border-radius:6px; padding:28px 30px;
+  }
+  .info-card dl{display:grid; grid-template-columns:auto 1fr; gap:14px 18px; font-size:14.5px;}
+  .info-card dt{font-family:'IBM Plex Mono', monospace; color:var(--amber); font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; padding-top:2px;}
+  .info-card dd{color:var(--teal-deep); font-weight:500;}
+  .info-card hr{border:none; border-top:1px solid var(--line); margin:20px 0;}
+
+  /* ---- Ledger / categories (signature element) ---- */
+  .ledger{padding:96px 0;}
+  .ledger-head{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:24px; margin-bottom:8px;}
+  .ledger-table{margin-top:46px; border-top:1.5px solid var(--teal-deep);}
+  .ledger-row{
+    display:grid; grid-template-columns:64px 1fr auto; align-items:baseline;
+    padding:22px 0; border-bottom:1px solid var(--line);
+    gap:18px;
+  }
+  .ledger-row .code{
+    font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--amber);
+  }
+  .ledger-row .name{
+    font-family:'Fraunces', serif; font-size:22px; color:var(--teal-deep); font-weight:500;
+  }
+  .ledger-row .name span{
+    display:block; font-family:'IBM Plex Sans', sans-serif; font-weight:400; font-size:13.5px;
+    color:#6B7C79; margin-top:4px;
+  }
+  .ledger-row .stamp{
+    font-family:'IBM Plex Mono', monospace; font-size:11px; color:#8B9C98; text-transform:uppercase;
+    letter-spacing:.05em; white-space:nowrap;
+  }
+  @media(max-width:640px){
+    .ledger-row{grid-template-columns:40px 1fr; }
+    .ledger-row .stamp{grid-column:2; margin-top:6px;}
+  }
+
+  /* ---- Contact / footer band ---- */
+  .contact{
+    background:var(--teal-deep); color:var(--paper); border-radius:0;
+  }
+  .contact .wrap{padding:96px 32px;}
+  .contact h2.h2{color:var(--paper);}
+  .contact .eyebrow{color:var(--amber-soft);}
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:48px; margin-top:44px;}
+  .contact-block{border-top:1px solid rgba(246,241,230,.2); padding-top:20px;}
+  .contact-block .lbl{
+    font-family:'IBM Plex Mono', monospace; font-size:11.5px; text-transform:uppercase;
+    letter-spacing:.05em; color:var(--amber-soft); margin-bottom:10px;
+  }
+  .contact-block .val{font-size:19px; font-family:'Fraunces', serif;}
+  .contact-block a.val{text-decoration:none; border-bottom:1px solid rgba(246,241,230,.35);}
+  .contact-block a.val:hover{border-color:var(--amber-soft);}
+  @media(max-width:640px){ .contact-grid{grid-template-columns:1fr;} }
+
+  footer{
+    background:var(--teal-deep); color:rgba(246,241,230,.55);
+    font-size:13px; padding:24px 32px; border-top:1px solid rgba(246,241,230,.12);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  }
+  footer .wrap{max-width:1080px; margin:0 auto; display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:10px;}
+
+  :focus-visible{outline:2px solid var(--amber); outline-offset:2px;}
+</style>
 </head>
 <body>
 
-    <!-- Header Navigation -->
-    <header class="navbar">
-        <div class="container nav-wrapper">
-            <a href="#" class="brand-logo">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                </svg>
-                FARMA PLUS
-            </a>
-            <nav class="nav-menu">
-                <a href="#about">The Network</a>
-                <a href="#services">Digital Solutions</a>
-                <a href="#advantages">Our Edge</a>
-                <a href="#contact">Client Portal</a>
-            </nav>
+<header>
+  <div class="nav">
+    <div class="brand"><span class="mark">FP</span> Farma&nbsp;Plus</div>
+    <nav class="links">
+      <a href="#about">Empresa</a>
+      <a href="#lineas">Líneas</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a class="nav-cta" href="mailto:info@farmaplus.rest">info@farmaplus.rest</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="reg-tag">Asunción, Paraguay</div>
+      <h1 class="title reveal">Distribución mayorista <em>farmacéutica</em>, con registro y trazabilidad.</h1>
+      <p class="lede reveal">Farma Plus SRL abastece a farmacias, droguerías y centros de salud con medicamentos y artículos sanitarios de mayoreo — desde nuestra sede en Asunción hacia todo el país.</p>
+      <div class="hero-cta-row reveal">
+        <a class="btn-primary" href="#contacto">Solicitar cotización →</a>
+        <a class="btn-ghost" href="#lineas">Ver líneas de producto</a>
+      </div>
+
+      <div class="ledger-strip reveal">
+        <div class="cell">
+          <div class="num">Wholesale</div>
+          <div class="lbl">Trade sector</div>
         </div>
-    </header>
-
-    <!-- 1. Main Screen (Hero) -->
-    <section class="hero" id="home">
-        <div class="container hero-content">
-            <span class="hero-badge">B2B Medical Wholesale & Digital Platforms</span>
-            <h1>Next-Generation Pharmaceutical Distribution</h1>
-            <p>FARMA PLUS SRL leverages cutting-edge software and logistics to securely distribute critical drugs, medical sundries, and essential veterinary supplies across Paraguay.</p>
-            <a href="#contact" class="btn-primary">Initialize Sync</a>
+        <div class="cell">
+          <div class="num">SRL</div>
+          <div class="lbl">Forma jurídica</div>
         </div>
-    </section>
-
-    <!-- 2. About Us -->
-    <section class="section-padding about-section" id="about">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Commercial Blueprint</h2>
-                <p>Architecting software-driven excellence across the medical supply chain.</p>
-            </div>
-            <div class="about-card">
-                Strategically headquartered in Asuncion, Paraguay, FARMA PLUS SRL operates as a highly sophisticated, tech-enabled hub for pharmaceutical and medical supply distribution. We specialize in the expansive wholesale trade of drugs, druggists' sundries, and essential nondurable goods, serving as a critical and secure link between global manufacturers and regional healthcare providers. To maintain industry leadership, we develop proprietary mobile applications and B2B digital portals that streamline inventory management and real-time logistics tracking for our clinic and pharmacy partners. Beyond human pharmaceuticals, we extend our operational footprint into the specialized distribution of animal medicines. By optimizing our supply chain with custom software solutions, we ensure our partners receive premium, safe products with unmatched efficiency and clinical dedication.
-            </div>
+        <div class="cell">
+          <div class="num">PY</div>
+          <div class="lbl">País de operación</div>
         </div>
-    </section>
-
-    <!-- 3. Services -->
-    <section class="section-padding services-section" id="services">
-        <div class="container">
-            <div class="section-header">
-                <h2>Wholesale & Digital Logistics</h2>
-                <p>Comprehensive distribution frameworks powered by modern technology.</p>
-            </div>
-            
-            <div class="services-grid">
-                <!-- Service 1 -->
-                <div class="service-box">
-                    <div class="service-icon">
-                        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                    </div>
-                    <h3>Pharmaceutical Distribution</h3>
-                    <p>We supply a vast, rigorously regulated inventory of drugs and druggists' sundries to medical facilities. Our advanced cold-chain logistics ensure that all sensitive medical supplies maintain perfect clinical efficacy from the manufacturer directly to the point of care.</p>
-                </div>
-                
-                <!-- Service 2 -->
-                <div class="service-box">
-                    <div class="service-icon">
-                        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
-                    </div>
-                    <h3>Digital B2B Supply Platforms</h3>
-                    <p>We build and maintain exclusive iOS and web applications for our B2B partners. These digital platforms allow clinics and pharmacies to place rapid wholesale orders, track sensitive medical shipments in real-time, and manage their procurement data securely.</p>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="service-box">
-                    <div class="service-icon">
-                        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-                    </div>
-                    <h3>Veterinary & Nondurable Goods</h3>
-                    <p>Beyond our strict human medical focus, we distribute specialized animal medicines and general nondurable consumer goods. We leverage our optimized, tech-driven warehousing infrastructure to distribute high-turnover essential products efficiently across our network.</p>
-                </div>
-            </div>
+        <div class="cell">
+          <div class="num">B2B</div>
+          <div class="lbl">Modelo comercial</div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- 4. Advantages -->
-    <section class="section-padding advantages-section" id="advantages">
-        <div class="container">
-            <div class="section-header">
-                <h2>The Farma Plus Advantage</h2>
-                <p>Why modern healthcare providers synchronize with our network.</p>
-            </div>
-            
-            <div class="adv-grid">
-                <!-- Advantage 1 -->
-                <div class="adv-item">
-                    <div class="adv-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                    </div>
-                    <h3>Strategic Asuncion Hub</h3>
-                    <p>Operating out of the capital, our central location ensures rapid, highly efficient deployment of critical supplies across Paraguay.</p>
-                </div>
-                
-                <!-- Advantage 2 -->
-                <div class="adv-item">
-                    <div class="adv-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                    </div>
-                    <h3>Software-Driven Quality Control</h3>
-                    <p>We utilize proprietary tracking software to enforce strict compliance and storage protocols, guaranteeing product integrity.</p>
-                </div>
-
-                <!-- Advantage 3 -->
-                <div class="adv-item">
-                    <div class="adv-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                    </div>
-                    <h3>Scalable Digital Procurement</h3>
-                    <p>Our robust digital infrastructure allows us to seamlessly fulfill critical emergency orders and massive enterprise shipments via our partner apps.</p>
-                </div>
-            </div>
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="eyebrow reveal">La empresa</div>
+      <h2 class="h2 reveal">Un mayorista, no un fabricante — y esa es la diferencia.</h2>
+      <div class="about-grid">
+        <div class="reveal">
+          <p>Farma Plus SRL opera como mayorista de medicamentos y artículos sanitarios, comprando en volumen a laboratorios y distribuidores para revender a farmacias, droguerías y clínicas de menor escala. No producimos ni reformulamos: nuestro trabajo es logística, stock y cumplimiento regulatorio.</p>
+          <p>Con sede en Asunción, coordinamos pedidos, control de lotes y despacho hacia clientes en todo el territorio paraguayo, manteniendo registros de trazabilidad en cada movimiento de inventario.</p>
         </div>
-    </section>
-
-    <!-- 5. Contact Form & Contacts -->
-    <section class="section-padding contact-section" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2>Establish Commercial Sync</h2>
-                <p>Request access to our B2B digital platforms or submit procurement inquiries directly.</p>
-            </div>
-            
-            <div class="contact-layout">
-                <!-- Contact Form -->
-                <div class="form-area">
-                    <form action="#" method="POST">
-                        <div class="form-group">
-                            <label for="name">Medical Entity / Partner Name</label>
-                            <input type="text" id="name" name="name" placeholder="Enter commercial credentials..." required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Communication Node (Email)</label>
-                            <input type="email" id="email" name="email" placeholder="Enter secure email address..." required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Platform Access / Procurement Needs</label>
-                            <textarea id="message" name="message" placeholder="Specify app access requests, drug categories, or logistical needs..." required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Transmit Request</button>
-                    </form>
-                </div>
-
-                <!-- Contacts Info -->
-                <div class="info-area">
-                    <h3>Network Coordinates</h3>
-                    
-                    <div class="info-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        <div class="info-details">
-                            <h4>Physical Hub</h4>
-                            <p>LAS DELICIAS N° 4386<br>ASUNCION<br>Paraguay</p>
-                        </div>
-                    </div>
-
-                    <div class="info-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                        <div class="info-details">
-                            <h4>Digital Interface</h4>
-                            <a href="mailto:info@farmaplus.rest">info@farmaplus.rest</a>
-                        </div>
-                    </div>
-                    
-                    <div class="info-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                        <div class="info-details">
-                            <h4>Corporate Identity</h4>
-                            <p>FARMA PLUS SRL<br>Tech-Enabled Wholesalers</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="info-card reveal">
+          <dl>
+            <dt>Razón social</dt><dd>Farma Plus SRL</dd>
+            <dt>Dirección</dt><dd>Las Delicias N.° 4386, Asunción, Paraguay</dd>
+            <dt>Correo</dt><dd><a href="mailto:info@farmaplus.rest">info@farmaplus.rest</a></dd>
+            <hr style="grid-column:1/-1;">
+            <dt>Industria</dt><dd>Drugs &amp; Druggists' Sundries — Merchant Wholesalers</dd>
+            <dt>Sector</dt><dd>Nondurable Goods, Wholesale Trade</dd>
+          </dl>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 FARMA PLUS SRL. All system rights reserved. Premium Digital Pharmaceutical Logistics.</p>
-            <span class="footer-ref" style="display: none;">Reference Document: image_0c584b.png</span>
+  <section class="ledger" id="lineas">
+    <div class="wrap">
+      <div class="ledger-head">
+        <div>
+          <div class="eyebrow reveal">Registro de líneas</div>
+          <h2 class="h2 reveal">Categorías que distribuimos.</h2>
         </div>
-    </footer>
+      </div>
 
-    <!-- Smooth Scroll Script -->
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
+      <div class="ledger-table">
+        <div class="ledger-row reveal">
+          <div class="code">01</div>
+          <div class="name">Medicamentos y artículos farmacéuticos
+            <span>Drugs &amp; Druggists' Sundries — Merchant Wholesalers</span>
+          </div>
+          <div class="stamp">línea principal</div>
+        </div>
+        <div class="ledger-row reveal">
+          <div class="code">02</div>
+          <div class="name">Bienes de consumo no duraderos
+            <span>Nondurable Goods — Merchant Wholesalers</span>
+          </div>
+          <div class="stamp">activo</div>
+        </div>
+        <div class="ledger-row reveal">
+          <div class="code">03</div>
+          <div class="name">Comercio mayorista general
+            <span>Wholesale Trade</span>
+          </div>
+          <div class="stamp">activo</div>
+        </div>
+        <div class="ledger-row reveal">
+          <div class="code">04</div>
+          <div class="name">Insumos para animales
+            <span>Farm Product Raw Material — Merchant Wholesalers</span>
+          </div>
+          <div class="stamp">bajo consulta</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contacto">
+    <div class="wrap">
+      <div class="eyebrow reveal">Contacto</div>
+      <h2 class="h2 reveal">Hablemos de su próximo pedido.</h2>
+      <div class="contact-grid">
+        <div class="contact-block reveal">
+          <div class="lbl">Correo comercial</div>
+          <a class="val" href="mailto:info@farmaplus.rest">info@farmaplus.rest</a>
+        </div>
+        <div class="contact-block reveal">
+          <div class="lbl">Dirección</div>
+          <div class="val">Las Delicias N.° 4386<br>Asunción, Paraguay</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year"></span> Farma Plus SRL</span>
+    <span>Asunción, Paraguay</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  }
+</script>
+
 </body>
 </html>
