@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FARMA PLUS SRL | Premium Medical & Pharmaceutical Wholesale</title>
+    <title>FARMA PLUS SRL | Digital Healthcare & Medical Supply</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Space+Grotesk:wght@500;700;900&display=swap" rel="stylesheet">
     <style>
-        /* --- CSS Variables & Sleek "Xavrintok" Dark Medical Theme --- */
+        /* --- CSS Variables & Sleek Tech-Medical Theme --- */
         :root {
             --bg-deep: #020617; /* Very Dark Slate */
             --bg-surface: #0f172a;
             --bg-card: #1e293b;
-            --color-primary: #06b6d4; /* Clean Cyan */
-            --color-primary-glow: rgba(6, 182, 212, 0.4);
-            --color-secondary: #3b82f6; /* Royal Blue */
-            --color-secondary-glow: rgba(59, 130, 246, 0.4);
+            --color-primary: #0ea5e9; /* Medical Sky Blue */
+            --color-primary-glow: rgba(14, 165, 233, 0.4);
+            --color-secondary: #10b981; /* Health Emerald */
+            --color-secondary-glow: rgba(16, 185, 129, 0.4);
             --text-main: #F8FAFC;
             --text-muted: #94A3B8;
             --font-heading: 'Space Grotesk', sans-serif;
@@ -46,8 +46,8 @@
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             background-image: 
-                radial-gradient(circle at 15% 50%, rgba(6, 182, 212, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 85% 30%, rgba(59, 130, 246, 0.03) 0%, transparent 50%);
+                radial-gradient(circle at 15% 50%, rgba(14, 165, 233, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 85% 30%, rgba(16, 185, 129, 0.03) 0%, transparent 50%);
         }
 
         h1, h2, h3, h4, h5 {
@@ -121,7 +121,7 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(6, 182, 212, 0.1);
+            border-bottom: 1px solid rgba(14, 165, 233, 0.1);
         }
 
         .nav-wrapper {
@@ -186,7 +186,7 @@
         /* --- 1. Main Screen (Hero) --- */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(2, 6, 23, 0.85), rgba(2, 6, 23, 0.98)), url('https://images.unsplash.com/photo-1631549916768-4119b2e5f926?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            background: linear-gradient(rgba(2, 6, 23, 0.85), rgba(2, 6, 23, 0.98)), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
             display: flex;
             align-items: center;
             text-align: center;
@@ -205,14 +205,14 @@
         .hero-badge {
             display: inline-block;
             padding: 8px 20px;
-            background: rgba(6, 182, 212, 0.1);
+            background: rgba(14, 165, 233, 0.1);
             color: var(--color-primary);
             border-radius: 30px;
             font-size: 0.9rem;
             font-family: var(--font-body);
             font-weight: 600;
             margin-bottom: 30px;
-            border: 1px solid rgba(6, 182, 212, 0.3);
+            border: 1px solid rgba(14, 165, 233, 0.3);
             text-transform: uppercase;
             letter-spacing: 2px;
             animation: fadeInDown 1s ease-out;
@@ -305,14 +305,14 @@
         .service-box:hover {
             transform: translateY(-8px);
             background: var(--bg-card);
-            border-color: rgba(6, 182, 212, 0.3);
+            border-color: rgba(14, 165, 233, 0.3);
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
 
         .service-icon {
             width: 60px;
             height: 60px;
-            background: rgba(6, 182, 212, 0.1);
+            background: rgba(14, 165, 233, 0.1);
             color: var(--color-primary);
             border-radius: 12px;
             display: flex;
@@ -360,8 +360,8 @@
         }
 
         .adv-item:hover {
-            background: rgba(6, 182, 212, 0.03);
-            border-color: rgba(6, 182, 212, 0.2);
+            background: rgba(14, 165, 233, 0.03);
+            border-color: rgba(14, 165, 233, 0.2);
         }
 
         .adv-icon {
@@ -435,7 +435,7 @@
         .form-group textarea:focus {
             outline: none;
             border-color: var(--color-primary);
-            background: rgba(6, 182, 212, 0.02);
+            background: rgba(14, 165, 233, 0.02);
             box-shadow: 0 0 0 2px var(--color-primary-glow);
         }
 
@@ -575,9 +575,9 @@
             </a>
             <nav class="nav-menu">
                 <a href="#about">The Network</a>
-                <a href="#services">Supply Lines</a>
-                <a href="#advantages">Our Core Edge</a>
-                <a href="#contact">Vendor Portal</a>
+                <a href="#services">Digital Solutions</a>
+                <a href="#advantages">Our Edge</a>
+                <a href="#contact">Client Portal</a>
             </nav>
         </div>
     </header>
@@ -585,10 +585,10 @@
     <!-- 1. Main Screen (Hero) -->
     <section class="hero" id="home">
         <div class="container hero-content">
-            <span class="hero-badge">Druggists' Sundries & Merchant Wholesalers</span>
-            <h1>Advancing Medical Supply Distribution</h1>
-            <p>FARMA PLUS SRL is Paraguay's dedicated merchant wholesaler, facilitating the secure distribution of pharmaceuticals, medical sundries, and animal medicines.</p>
-            <a href="#contact" class="btn-primary">Initialize Supply Sync</a>
+            <span class="hero-badge">B2B Medical Wholesale & Digital Platforms</span>
+            <h1>Next-Generation Pharmaceutical Distribution</h1>
+            <p>FARMA PLUS SRL leverages cutting-edge software and logistics to securely distribute critical drugs, medical sundries, and essential veterinary supplies across Paraguay.</p>
+            <a href="#contact" class="btn-primary">Initialize Sync</a>
         </div>
     </section>
 
@@ -597,10 +597,10 @@
         <div class="container">
             <div class="section-header">
                 <h2>Our Commercial Blueprint</h2>
-                <p>Architecting excellence across the medical and nondurable goods supply chain.</p>
+                <p>Architecting software-driven excellence across the medical supply chain.</p>
             </div>
             <div class="about-card">
-                Strategically headquartered in Asuncion, Paraguay, FARMA PLUS SRL operates as a highly sophisticated hub for pharmaceutical and medical supply distribution. We specialize in the expansive wholesale trade of drugs, druggists' sundries, and essential nondurable goods, serving as a critical and secure link between global manufacturers and regional healthcare providers. Beyond human pharmaceuticals, we extend our operational footprint into the specialized distribution of animal medicines, fortifying our position in the broader wholesale market. By optimizing logistics and maintaining rigorous quality control protocols, we ensure our partners receive premium, safe products reliably. Our ultimate objective is to continuously elevate the standard of healthcare supply chains throughout the region through unmatched efficiency and clinical dedication.
+                Strategically headquartered in Asuncion, Paraguay, FARMA PLUS SRL operates as a highly sophisticated, tech-enabled hub for pharmaceutical and medical supply distribution. We specialize in the expansive wholesale trade of drugs, druggists' sundries, and essential nondurable goods, serving as a critical and secure link between global manufacturers and regional healthcare providers. To maintain industry leadership, we develop proprietary mobile applications and B2B digital portals that streamline inventory management and real-time logistics tracking for our clinic and pharmacy partners. Beyond human pharmaceuticals, we extend our operational footprint into the specialized distribution of animal medicines. By optimizing our supply chain with custom software solutions, we ensure our partners receive premium, safe products with unmatched efficiency and clinical dedication.
             </div>
         </div>
     </section>
@@ -609,8 +609,8 @@
     <section class="section-padding services-section" id="services">
         <div class="container">
             <div class="section-header">
-                <h2>Wholesale & Logistics</h2>
-                <p>Comprehensive distribution frameworks engineered to stock and scale your enterprise.</p>
+                <h2>Wholesale & Digital Logistics</h2>
+                <p>Comprehensive distribution frameworks powered by modern technology.</p>
             </div>
             
             <div class="services-grid">
@@ -620,7 +620,7 @@
                         <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
                     </div>
                     <h3>Pharmaceutical Distribution</h3>
-                    <p>We supply a vast, rigorously regulated inventory of drugs and druggists' sundries to pharmacies, clinics, and medical facilities. Our advanced cold-chain logistics and secure warehousing ensure that all sensitive medical supplies maintain perfect efficacy from the manufacturer directly to the point of care.</p>
+                    <p>We supply a vast, rigorously regulated inventory of drugs and druggists' sundries to medical facilities. Our advanced cold-chain logistics ensure that all sensitive medical supplies maintain perfect clinical efficacy from the manufacturer directly to the point of care.</p>
                 </div>
                 
                 <!-- Service 2 -->
@@ -628,8 +628,8 @@
                     <div class="service-icon">
                         <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
                     </div>
-                    <h3>Animal Medicines & Care</h3>
-                    <p>Our expansive inventory includes specialized, high-grade animal medicines and veterinary supplies. By bridging the gap between top-tier veterinary manufacturers and agricultural or clinical practitioners, we support the health and wellness of livestock and companion animals throughout the region.</p>
+                    <h3>Digital B2B Supply Platforms</h3>
+                    <p>We build and maintain exclusive iOS and web applications for our B2B partners. These digital platforms allow clinics and pharmacies to place rapid wholesale orders, track sensitive medical shipments in real-time, and manage their procurement data securely.</p>
                 </div>
 
                 <!-- Service 3 -->
@@ -637,8 +637,8 @@
                     <div class="service-icon">
                         <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
                     </div>
-                    <h3>Nondurable Goods Wholesale</h3>
-                    <p>Beyond our strict medical and veterinary focus, we excel in the generalized wholesale trade of nondurable consumer goods. We leverage our optimized warehousing infrastructure to distribute high-turnover essential products efficiently, effectively meeting the broader commercial needs of our vast retail network.</p>
+                    <h3>Veterinary & Nondurable Goods</h3>
+                    <p>Beyond our strict human medical focus, we distribute specialized animal medicines and general nondurable consumer goods. We leverage our optimized, tech-driven warehousing infrastructure to distribute high-turnover essential products efficiently across our network.</p>
                 </div>
             </div>
         </div>
@@ -649,7 +649,7 @@
         <div class="container">
             <div class="section-header">
                 <h2>The Farma Plus Advantage</h2>
-                <p>Why leading medical providers synchronize with our supply network.</p>
+                <p>Why modern healthcare providers synchronize with our network.</p>
             </div>
             
             <div class="adv-grid">
@@ -658,7 +658,7 @@
                     <div class="adv-icon">
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
                     </div>
-                    <h3>Asuncion Hub</h3>
+                    <h3>Strategic Asuncion Hub</h3>
                     <p>Operating out of the capital, our central location ensures rapid, highly efficient deployment of critical supplies across Paraguay.</p>
                 </div>
                 
@@ -667,8 +667,8 @@
                     <div class="adv-icon">
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                     </div>
-                    <h3>Rigorous Quality Control</h3>
-                    <p>We enforce strict compliance and storage protocols, guaranteeing that every pharmaceutical product remains uncompromised and safe.</p>
+                    <h3>Software-Driven Quality Control</h3>
+                    <p>We utilize proprietary tracking software to enforce strict compliance and storage protocols, guaranteeing product integrity.</p>
                 </div>
 
                 <!-- Advantage 3 -->
@@ -676,8 +676,8 @@
                     <div class="adv-icon">
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
                     </div>
-                    <h3>Volume & Scalability</h3>
-                    <p>Our robust procurement networks allow us to fulfill both critical emergency orders and massive, routine enterprise shipments seamlessly.</p>
+                    <h3>Scalable Digital Procurement</h3>
+                    <p>Our robust digital infrastructure allows us to seamlessly fulfill critical emergency orders and massive enterprise shipments via our partner apps.</p>
                 </div>
             </div>
         </div>
@@ -688,7 +688,7 @@
         <div class="container">
             <div class="section-header">
                 <h2>Establish Commercial Sync</h2>
-                <p>Transmit your wholesale inquiries or procurement requests directly to our command center.</p>
+                <p>Request access to our B2B digital platforms or submit procurement inquiries directly.</p>
             </div>
             
             <div class="contact-layout">
@@ -696,7 +696,7 @@
                 <div class="form-area">
                     <form action="#" method="POST">
                         <div class="form-group">
-                            <label for="name">Medical Entity / Buyer Name</label>
+                            <label for="name">Medical Entity / Partner Name</label>
                             <input type="text" id="name" name="name" placeholder="Enter commercial credentials..." required>
                         </div>
                         <div class="form-group">
@@ -704,8 +704,8 @@
                             <input type="email" id="email" name="email" placeholder="Enter secure email address..." required>
                         </div>
                         <div class="form-group">
-                            <label for="message">Procurement Requirements</label>
-                            <textarea id="message" name="message" placeholder="Specify drug categories, volume, or logistical needs..." required></textarea>
+                            <label for="message">Platform Access / Procurement Needs</label>
+                            <textarea id="message" name="message" placeholder="Specify app access requests, drug categories, or logistical needs..." required></textarea>
                         </div>
                         <button type="submit" class="submit-btn">Transmit Request</button>
                     </form>
@@ -735,7 +735,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                         <div class="info-details">
                             <h4>Corporate Identity</h4>
-                            <p>FARMA PLUS SRL<br>Merchant Wholesalers</p>
+                            <p>FARMA PLUS SRL<br>Tech-Enabled Wholesalers</p>
                         </div>
                     </div>
                 </div>
@@ -746,8 +746,8 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 FARMA PLUS SRL. All system rights reserved. Premium Pharmaceutical Wholesale.</p>
-            <span class="footer-ref">Reference Document: image_00fee3.png</span>
+            <p>&copy; 2026 FARMA PLUS SRL. All system rights reserved. Premium Digital Pharmaceutical Logistics.</p>
+            <span class="footer-ref" style="display: none;">Reference Document: image_0c584b.png</span>
         </div>
     </footer>
 
